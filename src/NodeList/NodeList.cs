@@ -64,7 +64,20 @@ namespace NodeList
 
         public bool Contains(T item)
         {
-            throw new NotImplementedException();
+            if (_first is null) return false;
+            if (item is null) throw new ArgumentNullException(nameof(item));
+
+            Node<T>? current = _first;
+
+            while (current is not null)
+            {
+                if (item.Equals(current.Value))
+                    return true;
+
+                current = current.Next;
+            }
+
+            return false;
         }
 
         public void CopyTo(T[] array, int arrayIndex)
