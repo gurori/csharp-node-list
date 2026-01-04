@@ -36,7 +36,7 @@ namespace NodeList
         public T this[int index]
         {
             get => GetElementByIndex(index);
-            set => SetElementByIndex(index);
+            set => SetElementByIndex(index, value);
         }
 
         public Type ElementType => typeof(T);
@@ -51,6 +51,13 @@ namespace NodeList
 
         public void Add(T item)
         {
+            if (Count == 0)
+            {
+                _first = _last = new(item);
+                Count++;
+                return;
+            }
+
             _last!.Next = new(item);
             _last = _last.Next;
             Count++;
@@ -65,7 +72,6 @@ namespace NodeList
         public bool Contains(T item)
         {
             if (_first is null) return false;
-            if (item is null) throw new ArgumentNullException(nameof(item));
 
             Node<T>? current = _first;
 
@@ -87,16 +93,33 @@ namespace NodeList
 
         public IEnumerator<T> GetEnumerator()
         {
-            throw new NotImplementedException();
+            Node<T>? current = _first;
+
+            while (current is not null)
+            {
+                yield return current.Value;
+                current = current.Next;
+            }
         }
 
         public int IndexOf(T item)
         {
-            throw new NotImplementedException();
+            int index = 0;
+
+            foreach (T value in this)
+            {
+                if (value.Equals(item))
+                    return index;
+
+                index++;
+            }
+
+            return -1;
         }
 
         public void Insert(int index, T item)
         {
+            CheckIndex(index);
             throw new NotImplementedException();
         }
 
@@ -117,14 +140,15 @@ namespace NodeList
 
         private T GetElementByIndex(int index)
         {
-            CheckIndex(index);
-            throw new NotImplementedException();
+            var node = GetNodeByIndex(index);
+            return node.Value;
         }
 
-        private T SetElementByIndex(int index)
+        private T SetElementByIndex(int index, T value)
         {
-            CheckIndex(index);
-            throw new NotImplementedException();
+            var node = GetNodeByIndex(index);
+            node.Value = value;
+            return value;
         }
 
         private void CheckIndex(int index)
@@ -133,6 +157,27 @@ namespace NodeList
             {
                 throw new ArgumentOutOfRangeException(nameof(index));
             }
+        }
+
+        private Node<T> GetNodeByIndex(int index)
+        {
+            CheckIndex(index);
+
+            int currentIndex = 0;
+            Node<T>? current = _first;
+
+            while (current is not null)
+            {
+                if (currentIndex == index)
+                {
+                    break;
+                }
+
+                currentIndex++;
+                current = current.Next;
+            }
+
+            return current!;
         }
     }
 }
