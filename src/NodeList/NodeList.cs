@@ -133,6 +133,7 @@ namespace NodeList
 
             Node<T> newItem = new(item, current?.Next);
             current?.Next = newItem;
+            Count++;
         }
 
         public bool Remove(T item)
