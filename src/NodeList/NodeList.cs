@@ -71,16 +71,16 @@ namespace NodeList
 
         public bool Contains(T item)
         {
-            if (_first is null) return false;
+            if (item is null)
+                throw new ArgumentNullException(nameof(item));
 
-            Node<T>? current = _first;
+            if (Count == 0)
+                return false;
 
-            while (current is not null)
+            foreach (T current in this)
             {
-                if (item.Equals(current.Value))
+                if (item.Equals(current))
                     return true;
-
-                current = current.Next;
             }
 
             return false;
@@ -104,11 +104,14 @@ namespace NodeList
 
         public int IndexOf(T item)
         {
+            if (item is null)
+                throw new ArgumentNullException(nameof(item));
+
             int index = 0;
 
             foreach (T value in this)
             {
-                if (value.Equals(item))
+                if (value is not null && value.Equals(item))
                     return index;
 
                 index++;
