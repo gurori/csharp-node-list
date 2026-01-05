@@ -123,7 +123,16 @@ namespace NodeList
         public void Insert(int index, T item)
         {
             CheckIndex(index);
-            throw new NotImplementedException();
+
+            Node<T>? current = _first;
+
+            for (int i = 0; i < index; i++)
+            {
+                current = current?.Next;
+            }
+
+            Node<T> newItem = new(item, current?.Next);
+            current?.Next = newItem;
         }
 
         public bool Remove(T item)
