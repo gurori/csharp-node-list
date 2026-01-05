@@ -137,7 +137,34 @@ namespace NodeList
 
         public bool Remove(T item)
         {
-            throw new NotImplementedException();
+            if (_first is null)
+                return false;
+
+            if (item is null)
+                throw new ArgumentNullException(nameof(item));
+
+            if (item.Equals(_first.Value))
+            {
+                _first = _first.Next;
+                Count--;
+                return true;
+            }
+
+            Node<T>? current = _first;
+
+            while (current is not null)
+            {
+                if (current.Next is not null && item.Equals(current.Next.Value))
+                {
+                    current.Next = current.Next.Next;
+                    Count--;
+                    return true;
+                }
+
+                current = current?.Next;
+            }
+
+            return false;
         }
 
         public void RemoveAt(int index)
