@@ -188,12 +188,14 @@ namespace NodeList
 
         private T GetElementByIndex(int index)
         {
+            CheckIndex(index);
             var node = GetNodeByIndex(index);
             return node.Value;
         }
 
         private T SetElementByIndex(int index, T value)
         {
+            CheckIndex(index);
             var node = GetNodeByIndex(index);
             node.Value = value;
             return value;
@@ -209,8 +211,6 @@ namespace NodeList
 
         private Node<T> GetNodeByIndex(int index)
         {
-            CheckIndex(index);
-
             int currentIndex = 0;
             Node<T>? current = _first;
 
