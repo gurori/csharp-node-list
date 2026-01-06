@@ -124,16 +124,24 @@ namespace NodeList
         {
             CheckIndex(index);
 
-            Node<T>? current = _first;
+            Count++;
 
-            for (int i = 0; i < index; i++)
+            if (index == 0)
             {
-                current = current?.Next;
+                _first = new(item, _first);
+                return;
             }
 
+            if (index + 1 == Count)
+            {
+                _last?.Next = new(item);
+                _last = _last?.Next;
+                return;
+            }
+
+            Node<T> current = GetNodeByIndex(index - 1);
             Node<T> newItem = new(item, current?.Next);
             current?.Next = newItem;
-            Count++;
         }
 
         public bool Remove(T item)
