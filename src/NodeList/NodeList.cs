@@ -178,7 +178,18 @@ namespace NodeList
 
         public void RemoveAt(int index)
         {
-            throw new NotImplementedException();
+            CheckIndex(index);
+
+            Count--;
+
+            if (index == 0)
+            {
+                _first = _first?.Next;
+                return;
+            }
+
+            Node<T> node = GetNodeByIndex(index - 1);
+            node.Next = node.Next?.Next;
         }
 
         IEnumerator IEnumerable.GetEnumerator()
