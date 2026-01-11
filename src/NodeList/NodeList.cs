@@ -88,7 +88,30 @@ namespace NodeList
 
         public void CopyTo(T[] array, int arrayIndex)
         {
-            throw new NotImplementedException();
+            if (array is null)
+                throw new ArgumentNullException(nameof(array));
+
+            if (arrayIndex < 0)
+                throw new ArgumentOutOfRangeException(nameof(arrayIndex));
+
+            if (array.Rank > 1)
+                throw new ArgumentException(
+                    "Array is multidimensional; it must be a single-dimensional array.",
+                    nameof(array)
+                );
+
+            if (array.Length - arrayIndex < Count)
+                throw new ArgumentException(
+                    "The number of elements in the source NodeList is greater than the available space from the index to the end of the destination array.",
+                    nameof(array)
+                );
+
+            int i = 0;
+            foreach (T item in this)
+            {
+                array[i + arrayIndex] = item;
+                i++;
+            }
         }
 
         public IEnumerator<T> GetEnumerator()
