@@ -15,7 +15,7 @@ namespace NodeList
 
         public NodeList(params IEnumerable<T> values)
         {
-            Count = 0;
+            Clear();
             Node<T>? current;
 
             foreach (T value in values)
