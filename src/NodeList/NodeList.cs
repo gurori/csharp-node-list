@@ -1,12 +1,19 @@
 using System.Collections;
-using System.Linq.Expressions;
 
 namespace NodeList
 {
-    public class NodeList<T> : IQueryable<T>, ICollection<T>, IList<T>
+    public class NodeList<T> : IEnumerable<T>, ICollection<T>, IList<T>
     {
         private Node<T>? _first;
         private Node<T>? _last;
+        public int Count { get; private set; }
+        public bool IsReadOnly => false;
+
+        public T this[int index]
+        {
+            get => GetElementByIndex(index);
+            set => SetElementByIndex(index, value);
+        }
 
         public NodeList()
         {
@@ -32,22 +39,6 @@ namespace NodeList
                 Count++;
             }
         }
-
-        public T this[int index]
-        {
-            get => GetElementByIndex(index);
-            set => SetElementByIndex(index, value);
-        }
-
-        public Type ElementType => typeof(T);
-
-        public Expression Expression => throw new NotImplementedException();
-
-        public IQueryProvider Provider => throw new NotImplementedException();
-
-        public int Count { get; private set; }
-
-        public bool IsReadOnly => false;
 
         public void Add(T item)
         {
