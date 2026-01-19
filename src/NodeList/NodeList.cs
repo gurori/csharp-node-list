@@ -20,7 +20,7 @@ namespace NodeList
             Clear();
         }
 
-        public NodeList(params IEnumerable<T> values)
+        public NodeList(IEnumerable<T> values)
         {
             Clear();
             Node<T>? current;
@@ -148,14 +148,14 @@ namespace NodeList
 
             if (index + 1 == Count)
             {
-                _last?.Next = new(item);
+                _last!.Next = new(item);
                 _last = _last?.Next;
                 return;
             }
 
             Node<T> current = GetNodeByIndex(index - 1);
-            Node<T> newItem = new(item, current?.Next);
-            current?.Next = newItem;
+            Node<T> newItem = new(item, current.Next);
+            current.Next = newItem;
         }
 
         public bool Remove(T item)
