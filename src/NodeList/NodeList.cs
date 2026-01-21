@@ -22,6 +22,8 @@ namespace NodeList
 
         public NodeList(IEnumerable<T> values)
         {
+            ArgumentNullException.ThrowIfNull(values);
+
             Clear();
             Node<T>? current;
 

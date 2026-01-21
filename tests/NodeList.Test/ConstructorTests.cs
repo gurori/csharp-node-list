@@ -41,7 +41,7 @@ public sealed class ConstructorTests
 
         Assert.Throws<ArgumentNullException>(() =>
         {
-            var list = new NodeList<int>(source);
+            var list = new NodeList<int>(source!);
         });
     }
 }
