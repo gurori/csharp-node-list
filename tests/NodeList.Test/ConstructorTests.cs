@@ -33,4 +33,15 @@ public sealed class ConstructorTests
             Assert.Equal(item, source[index++]);
         }
     }
+
+    [Fact]
+    public void Constructor_WithNullCollection_ThrowsException()
+    {
+        ICollection<int>? source = null;
+
+        Assert.Throws<ArgumentNullException>(() =>
+        {
+            var list = new NodeList<int>(source);
+        });
+    }
 }
