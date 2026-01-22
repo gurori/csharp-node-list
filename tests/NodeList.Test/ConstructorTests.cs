@@ -44,4 +44,12 @@ public sealed class ConstructorTests
             var list = new NodeList<int>(source!);
         });
     }
+
+    [Fact]
+    public void Constructor_Default_ListIsEmpty()
+    {
+        var list = new NodeList<int>();
+
+        Assert.Empty(list);
+    }
 }
