@@ -24,4 +24,22 @@ public sealed class AddTests
 
         Assert.Equal(4, list.Count);
     }
+
+    [Fact]
+    public void Add_Item_AppendedToEnd()
+    {
+        NodeList<int> list = [1, 2, 3, 4];
+
+        list.Add(6);
+
+        Assert.Equal(5, list.Count);
+
+        int[] expected = [1, 2, 3, 4, 6];
+        int index = 0;
+
+        foreach (var item in list)
+        {
+            Assert.Equal(expected[index++], item);
+        }
+    }
 }
