@@ -42,4 +42,26 @@ public sealed class AddTests
             Assert.Equal(expected[index++], item);
         }
     }
+
+    [Fact]
+    public void Add_FirstItem_FirstEqualsLast()
+    {
+        var list = new NodeList<int>();
+
+        list.Add(123);
+
+        Assert.Single(list);
+
+        int count = 0,
+            value = -1;
+
+        foreach (var item in list)
+        {
+            count++;
+            value = item;
+        }
+
+        Assert.Equal(1, count);
+        Assert.Equal(123, value);
+    }
 }
