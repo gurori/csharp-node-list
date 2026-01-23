@@ -64,9 +64,6 @@ namespace NodeList
 
         public bool Contains(T item)
         {
-            if (item is null)
-                throw new ArgumentNullException(nameof(item));
-
             if (Count == 0)
                 return false;
 
@@ -120,9 +117,6 @@ namespace NodeList
 
         public int IndexOf(T item)
         {
-            if (item is null)
-                throw new ArgumentNullException(nameof(item));
-
             int index = 0;
 
             foreach (T value in this)
@@ -164,9 +158,6 @@ namespace NodeList
         {
             if (_first is null)
                 return false;
-
-            if (item is null)
-                throw new ArgumentNullException(nameof(item));
 
             if (item.Equals(_first.Value))
             {
