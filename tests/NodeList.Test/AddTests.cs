@@ -1,3 +1,5 @@
+using System.Reflection;
+
 namespace NodeList.Test;
 
 public sealed class AddTests
@@ -63,5 +65,16 @@ public sealed class AddTests
 
         Assert.Equal(1, count);
         Assert.Equal(123, value);
+    }
+
+    [Fact]
+    public void Add_NullReferenceType_Allowed()
+    {
+        NodeList<string> list = [];
+
+        list.Add(null);
+
+        Assert.Single(list);
+        Assert.Null(list[0]);
     }
 }
