@@ -67,9 +67,11 @@ namespace NodeList
             if (Count == 0)
                 return false;
 
+            var comparer = EqualityComparer<T>.Default;
+
             foreach (T current in this)
             {
-                if (item.Equals(current))
+                if (comparer.Equals(current, item))
                     return true;
             }
 
@@ -118,10 +120,11 @@ namespace NodeList
         public int IndexOf(T item)
         {
             int index = 0;
+            var comparer = EqualityComparer<T>.Default;
 
             foreach (T value in this)
             {
-                if (value is not null && value.Equals(item))
+                if (comparer.Equals(item, value))
                     return index;
 
                 index++;
@@ -159,7 +162,9 @@ namespace NodeList
             if (_first is null)
                 return false;
 
-            if (item.Equals(_first.Value))
+            var comparer = EqualityComparer<T>.Default;
+
+            if (comparer.Equals(item, _first.Value))
             {
                 _first = _first.Next;
                 Count--;
@@ -168,9 +173,9 @@ namespace NodeList
 
             Node<T>? current = _first;
 
-            while (current is not null)
+            while (current?.Next is not null)
             {
-                if (current.Next is not null && item.Equals(current.Next.Value))
+                if (comparer.Equals(item, current.Next.Value))
                 {
                     current.Next = current.Next.Next;
                     Count--;
