@@ -25,20 +25,10 @@ namespace NodeList
             ArgumentNullException.ThrowIfNull(values);
 
             Clear();
-            Node<T>? current;
 
             foreach (T value in values)
             {
-                current = new(value);
-
-                if (Count == 0)
-                {
-                    _first = current;
-                }
-
-                _last = current;
-                current = current.Next;
-                Count++;
+                Add(value);
             }
         }
 
