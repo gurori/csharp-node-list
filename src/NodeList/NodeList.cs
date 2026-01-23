@@ -80,11 +80,9 @@ namespace NodeList
 
         public void CopyTo(T[] array, int arrayIndex)
         {
-            if (array is null)
-                throw new ArgumentNullException(nameof(array));
+            ArgumentNullException.ThrowIfNull(array);
 
-            if (arrayIndex < 0)
-                throw new ArgumentOutOfRangeException(nameof(arrayIndex));
+            ArgumentOutOfRangeException.ThrowIfNegative(arrayIndex);
 
             if (array.Rank > 1)
                 throw new ArgumentException(
