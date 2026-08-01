@@ -123,7 +123,8 @@ namespace NodeList
 
         public void Insert(int index, T item)
         {
-            CheckIndex(index);
+            if (index < 0 || index > Count)
+                throw new ArgumentOutOfRangeException(nameof(index));
 
             Count++;
 
