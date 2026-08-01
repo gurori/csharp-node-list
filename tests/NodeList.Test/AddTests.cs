@@ -77,4 +77,15 @@ public sealed class AddTests
         Assert.Single(list);
         Assert.Null(list[0]);
     }
+
+    [Fact]
+    public void Add_ValueType_DefaultValueHandledCorrectly()
+    {
+        NodeList<int> list = [];
+
+        list.Add(default);
+
+        Assert.Single(list);
+        Assert.Equal(0, list[0]);
+    }
 }
