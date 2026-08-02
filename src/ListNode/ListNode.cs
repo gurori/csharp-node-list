@@ -1,8 +1,8 @@
 using System.Collections;
 
-namespace NodeList;
+namespace ListNode;
 
-public class NodeList<T> : IEnumerable<T>, ICollection<T>, IList<T>
+public class ListNode<T> : IEnumerable<T>, ICollection<T>, IList<T>
 {
     private Node<T>? _first;
     private Node<T>? _last;
@@ -15,9 +15,9 @@ public class NodeList<T> : IEnumerable<T>, ICollection<T>, IList<T>
         set => SetElementByIndex(index, value);
     }
 
-    public NodeList() { }
+    public ListNode() { }
 
-    public NodeList(IEnumerable<T> values)
+    public ListNode(IEnumerable<T> values)
     {
         ArgumentNullException.ThrowIfNull(values);
 
@@ -78,7 +78,7 @@ public class NodeList<T> : IEnumerable<T>, ICollection<T>, IList<T>
 
         if (array.Length - arrayIndex < Count)
             throw new ArgumentException(
-                "The number of elements in the source NodeList is greater than the available space from the index to the end of the destination array.",
+                "The number of elements in the source ListNode is greater than the available space from the index to the end of the destination array.",
                 nameof(array)
             );
 

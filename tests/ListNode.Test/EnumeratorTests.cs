@@ -1,11 +1,11 @@
-namespace NodeList.Test;
+namespace ListNode.Test;
 
 public sealed class EnumeratorTests
 {
     [Fact]
     public void GetEnumerator_EmptyList_HasNoElements()
     {
-        NodeList<int> list = [];
+        ListNode<int> list = [];
 
         Assert.Empty(list);
     }
@@ -13,7 +13,7 @@ public sealed class EnumeratorTests
     [Fact]
     public void GetEnumerator_SingleElement_EnumeratesElement()
     {
-        NodeList<int> list = [42];
+        ListNode<int> list = [42];
 
         int count = 0;
 
@@ -29,7 +29,7 @@ public sealed class EnumeratorTests
     [Fact]
     public void GetEnumerator_MultipleElements_PreservesOrder()
     {
-        NodeList<int> list = [1, 2, 3, 4, 5];
+        ListNode<int> list = [1, 2, 3, 4, 5];
 
         int[] expected = [1, 2, 3, 4, 5];
         int index = 0;
@@ -45,7 +45,7 @@ public sealed class EnumeratorTests
     [Fact]
     public void GetEnumerator_DefaultValues_EnumeratesCorrectly()
     {
-        NodeList<int> list = [0, default, 2];
+        ListNode<int> list = [0, default, 2];
 
         int[] expected = [0, 0, 2];
         int index = 0;
@@ -59,7 +59,7 @@ public sealed class EnumeratorTests
     [Fact]
     public void GetEnumerator_NullReference_EnumeratesCorrectly()
     {
-        NodeList<string?> list = ["A", null, "C"];
+        ListNode<string?> list = ["A", null, "C"];
 
         string?[] expected = ["A", null, "C"];
         int index = 0;
@@ -73,7 +73,7 @@ public sealed class EnumeratorTests
     [Fact]
     public void GetEnumerator_AfterAdd_EnumeratesAllElements()
     {
-        NodeList<int> list = [];
+        ListNode<int> list = [];
 
         list.Add(1);
         list.Add(2);
@@ -91,7 +91,7 @@ public sealed class EnumeratorTests
     [Fact]
     public void GetEnumerator_AfterInsert_EnumeratesAllElements()
     {
-        NodeList<int> list = [1, 3];
+        ListNode<int> list = [1, 3];
 
         list.Insert(1, 2);
 
@@ -107,7 +107,7 @@ public sealed class EnumeratorTests
     [Fact]
     public void GetEnumerator_AfterRemove_EnumeratesRemainingElements()
     {
-        NodeList<int> list = [1, 2, 3];
+        ListNode<int> list = [1, 2, 3];
 
         list.Remove(2);
 
@@ -123,7 +123,7 @@ public sealed class EnumeratorTests
     [Fact]
     public void GetEnumerator_AfterRemoveAt_EnumeratesRemainingElements()
     {
-        NodeList<int> list = [1, 2, 3];
+        ListNode<int> list = [1, 2, 3];
 
         list.RemoveAt(1);
 
@@ -139,7 +139,7 @@ public sealed class EnumeratorTests
     [Fact]
     public void GetEnumerator_AfterClear_HasNoElements()
     {
-        NodeList<int> list = [1, 2, 3];
+        ListNode<int> list = [1, 2, 3];
 
         list.Clear();
 
@@ -149,7 +149,7 @@ public sealed class EnumeratorTests
     [Fact]
     public void GetEnumerator_CanEnumerateMultipleTimes()
     {
-        NodeList<int> list = [1, 2, 3];
+        ListNode<int> list = [1, 2, 3];
 
         int sum1 = 0;
         foreach (var item in list)
@@ -169,7 +169,7 @@ public sealed class EnumeratorTests
     [Fact]
     public void GetEnumerator_LinqToArray_ReturnsCorrectArray()
     {
-        NodeList<int> list = [1, 2, 3];
+        ListNode<int> list = [1, 2, 3];
 
         Assert.Equal(new[] { 1, 2, 3 }, list.ToArray());
     }
@@ -177,7 +177,7 @@ public sealed class EnumeratorTests
     [Fact]
     public void GetEnumerator_LinqCount_ReturnsCorrectCount()
     {
-        NodeList<int> list = [1, 2, 3, 4];
+        ListNode<int> list = [1, 2, 3, 4];
 
         Assert.Equal(4, list.Count());
     }
@@ -185,7 +185,7 @@ public sealed class EnumeratorTests
     [Fact]
     public void GetEnumerator_LinqSum_ReturnsCorrectSum()
     {
-        NodeList<int> list = [1, 2, 3, 4];
+        ListNode<int> list = [1, 2, 3, 4];
 
         Assert.Equal(10, list.Sum());
     }

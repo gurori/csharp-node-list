@@ -1,11 +1,11 @@
-namespace NodeList.Test;
+namespace ListNode.Test;
 
 public sealed class RemoveAtTests
 {
     [Fact]
     public void RemoveAt_EmptyList_ThrowsArgumentOutOfRangeException()
     {
-        NodeList<int> list = [];
+        ListNode<int> list = [];
 
         Assert.Throws<ArgumentOutOfRangeException>(() => list.RemoveAt(0));
     }
@@ -13,7 +13,7 @@ public sealed class RemoveAtTests
     [Fact]
     public void RemoveAt_SingleElement_ListBecomesEmpty()
     {
-        NodeList<int> list = [42];
+        ListNode<int> list = [42];
 
         list.RemoveAt(0);
 
@@ -24,7 +24,7 @@ public sealed class RemoveAtTests
     [Fact]
     public void RemoveAt_FirstElement_RemovesElement()
     {
-        NodeList<int> list = [1, 2, 3];
+        ListNode<int> list = [1, 2, 3];
 
         list.RemoveAt(0);
 
@@ -42,7 +42,7 @@ public sealed class RemoveAtTests
     [Fact]
     public void RemoveAt_MiddleElement_RemovesElement()
     {
-        NodeList<int> list = [1, 2, 3];
+        ListNode<int> list = [1, 2, 3];
 
         list.RemoveAt(1);
 
@@ -60,7 +60,7 @@ public sealed class RemoveAtTests
     [Fact]
     public void RemoveAt_LastElement_RemovesElement()
     {
-        NodeList<int> list = [1, 2, 3];
+        ListNode<int> list = [1, 2, 3];
 
         list.RemoveAt(2);
 
@@ -78,7 +78,7 @@ public sealed class RemoveAtTests
     [Fact]
     public void RemoveAt_NegativeIndex_ThrowsArgumentOutOfRangeException()
     {
-        NodeList<int> list = [1, 2, 3];
+        ListNode<int> list = [1, 2, 3];
 
         Assert.Throws<ArgumentOutOfRangeException>(() => list.RemoveAt(-1));
     }
@@ -86,7 +86,7 @@ public sealed class RemoveAtTests
     [Fact]
     public void RemoveAt_IndexEqualToCount_ThrowsArgumentOutOfRangeException()
     {
-        NodeList<int> list = [1, 2, 3];
+        ListNode<int> list = [1, 2, 3];
 
         Assert.Throws<ArgumentOutOfRangeException>(() => list.RemoveAt(list.Count));
     }
@@ -94,7 +94,7 @@ public sealed class RemoveAtTests
     [Fact]
     public void RemoveAt_IndexGreaterThanCount_ThrowsArgumentOutOfRangeException()
     {
-        NodeList<int> list = [1, 2, 3];
+        ListNode<int> list = [1, 2, 3];
 
         Assert.Throws<ArgumentOutOfRangeException>(() => list.RemoveAt(10));
     }
@@ -102,7 +102,7 @@ public sealed class RemoveAtTests
     [Fact]
     public void RemoveAt_RemoveAllElements_ListBecomesEmpty()
     {
-        NodeList<int> list = [1, 2, 3];
+        ListNode<int> list = [1, 2, 3];
 
         list.RemoveAt(2);
         list.RemoveAt(1);
@@ -115,7 +115,7 @@ public sealed class RemoveAtTests
     [Fact]
     public void RemoveAt_AfterClear_ThrowsArgumentOutOfRangeException()
     {
-        NodeList<int> list = [1, 2, 3];
+        ListNode<int> list = [1, 2, 3];
 
         list.Clear();
 
@@ -125,7 +125,7 @@ public sealed class RemoveAtTests
     [Fact]
     public void RemoveAt_RemoveFirstTwice_RemovesCorrectElements()
     {
-        NodeList<int> list = [1, 2, 3, 4];
+        ListNode<int> list = [1, 2, 3, 4];
 
         list.RemoveAt(0);
         list.RemoveAt(0);
@@ -144,7 +144,7 @@ public sealed class RemoveAtTests
     [Fact]
     public void RemoveAt_RemoveMiddleRepeatedly_RemovesCorrectElements()
     {
-        NodeList<int> list = [1, 2, 3, 4, 5];
+        ListNode<int> list = [1, 2, 3, 4, 5];
 
         list.RemoveAt(2);
         list.RemoveAt(2);
@@ -163,7 +163,7 @@ public sealed class RemoveAtTests
     [Fact]
     public void RemoveAt_FromLargeList_RemovesCorrectElement()
     {
-        NodeList<int> list = [];
+        ListNode<int> list = [];
 
         for (int i = 0; i < 100; i++)
         {

@@ -1,4 +1,4 @@
-namespace NodeList
+namespace ListNode
 {
     internal sealed class Node<T>
     {

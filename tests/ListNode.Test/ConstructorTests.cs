@@ -1,11 +1,11 @@
-namespace NodeList.Test;
+namespace ListNode.Test;
 
 public sealed class ConstructorTests
 {
     [Fact]
     public void Constructor_Default_ListIsEmpty()
     {
-        var list = new NodeList<int>();
+        var list = new ListNode<int>();
 
         Assert.Empty(list);
         Assert.Equal(0, list.Count);
@@ -16,7 +16,7 @@ public sealed class ConstructorTests
     {
         int[] source = [];
 
-        var list = new NodeList<int>(source);
+        var list = new ListNode<int>(source);
 
         Assert.Empty(list);
         Assert.Equal(0, list.Count);
@@ -25,7 +25,7 @@ public sealed class ConstructorTests
     [Fact]
     public void Constructor_WithSingleElement_CountIsOne()
     {
-        NodeList<int> list = [52];
+        ListNode<int> list = [52];
 
         Assert.Single(list);
         Assert.Equal(52, list[0]);
@@ -36,7 +36,7 @@ public sealed class ConstructorTests
     {
         int[] source = [1, 2, 3, 4, 5];
 
-        var list = new NodeList<int>(source);
+        var list = new ListNode<int>(source);
 
         Assert.Equal(source.Length, list.Count);
 
@@ -53,7 +53,7 @@ public sealed class ConstructorTests
     {
         string?[] source = ["A", null, "B"];
 
-        var list = new NodeList<string?>(source);
+        var list = new ListNode<string?>(source);
 
         Assert.Equal(source.Length, list.Count);
 
@@ -70,6 +70,6 @@ public sealed class ConstructorTests
     {
         IEnumerable<int>? source = null;
 
-        Assert.Throws<ArgumentNullException>(() => new NodeList<int>(source!));
+        Assert.Throws<ArgumentNullException>(() => new ListNode<int>(source!));
     }
 }

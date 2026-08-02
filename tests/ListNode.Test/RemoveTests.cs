@@ -1,11 +1,11 @@
-namespace NodeList.Test;
+namespace ListNode.Test;
 
 public sealed class RemoveTests
 {
     [Fact]
     public void Remove_EmptyList_ReturnsFalse()
     {
-        NodeList<int> list = [];
+        ListNode<int> list = [];
 
         Assert.False(list.Remove(1));
         Assert.Empty(list);
@@ -14,7 +14,7 @@ public sealed class RemoveTests
     [Fact]
     public void Remove_SingleElement_ReturnsTrueAndListBecomesEmpty()
     {
-        NodeList<int> list = [42];
+        ListNode<int> list = [42];
 
         Assert.True(list.Remove(42));
 
@@ -25,7 +25,7 @@ public sealed class RemoveTests
     [Fact]
     public void Remove_FirstElement_RemovesElement()
     {
-        NodeList<int> list = [1, 2, 3];
+        ListNode<int> list = [1, 2, 3];
 
         Assert.True(list.Remove(1));
 
@@ -43,7 +43,7 @@ public sealed class RemoveTests
     [Fact]
     public void Remove_MiddleElement_RemovesElement()
     {
-        NodeList<int> list = [1, 2, 3];
+        ListNode<int> list = [1, 2, 3];
 
         Assert.True(list.Remove(2));
 
@@ -61,7 +61,7 @@ public sealed class RemoveTests
     [Fact]
     public void Remove_LastElement_RemovesElement()
     {
-        NodeList<int> list = [1, 2, 3];
+        ListNode<int> list = [1, 2, 3];
 
         Assert.True(list.Remove(3));
 
@@ -79,7 +79,7 @@ public sealed class RemoveTests
     [Fact]
     public void Remove_NonExistingElement_ReturnsFalse()
     {
-        NodeList<int> list = [1, 2, 3];
+        ListNode<int> list = [1, 2, 3];
 
         Assert.False(list.Remove(4));
 
@@ -89,7 +89,7 @@ public sealed class RemoveTests
     [Fact]
     public void Remove_DefaultValue_RemovesElement()
     {
-        NodeList<int> list = [1, default, 2];
+        ListNode<int> list = [1, default, 2];
 
         Assert.True(list.Remove(default));
 
@@ -105,7 +105,7 @@ public sealed class RemoveTests
     [Fact]
     public void Remove_NullReference_RemovesElement()
     {
-        NodeList<string?> list = ["A", null, "B"];
+        ListNode<string?> list = ["A", null, "B"];
 
         Assert.True(list.Remove(null));
 
@@ -123,7 +123,7 @@ public sealed class RemoveTests
     [Fact]
     public void Remove_DuplicateElements_RemovesFirstOccurrence()
     {
-        NodeList<int> list = [1, 2, 2, 3];
+        ListNode<int> list = [1, 2, 2, 3];
 
         Assert.True(list.Remove(2));
 
@@ -139,7 +139,7 @@ public sealed class RemoveTests
     [Fact]
     public void Remove_AllElements_ListBecomesEmpty()
     {
-        NodeList<int> list = [1, 2, 3];
+        ListNode<int> list = [1, 2, 3];
 
         Assert.True(list.Remove(1));
         Assert.True(list.Remove(2));
@@ -152,7 +152,7 @@ public sealed class RemoveTests
     [Fact]
     public void Remove_AfterClear_ReturnsFalse()
     {
-        NodeList<int> list = [1, 2, 3];
+        ListNode<int> list = [1, 2, 3];
 
         list.Clear();
 
@@ -163,7 +163,7 @@ public sealed class RemoveTests
     [Fact]
     public void Remove_CalledTwiceForSameElement_SecondCallReturnsFalse()
     {
-        NodeList<int> list = [1, 2, 3];
+        ListNode<int> list = [1, 2, 3];
 
         Assert.True(list.Remove(2));
         Assert.False(list.Remove(2));
@@ -180,7 +180,7 @@ public sealed class RemoveTests
     [Fact]
     public void Remove_LastRemainingElement_AfterPreviousRemovals_ListBecomesEmpty()
     {
-        NodeList<int> list = [1, 2];
+        ListNode<int> list = [1, 2];
 
         Assert.True(list.Remove(1));
         Assert.True(list.Remove(2));
@@ -192,7 +192,7 @@ public sealed class RemoveTests
     [Fact]
     public void Remove_ManyElements_RemovesCorrectElement()
     {
-        NodeList<int> list = [];
+        ListNode<int> list = [];
 
         for (int i = 0; i < 100; i++)
         {

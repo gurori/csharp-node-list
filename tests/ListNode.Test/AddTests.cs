@@ -1,11 +1,11 @@
-namespace NodeList.Test;
+namespace ListNode.Test;
 
 public sealed class AddTests
 {
     [Fact]
     public void Add_EmptyList_IncreasesCount()
     {
-        NodeList<int> list = [];
+        ListNode<int> list = [];
 
         list.Add(-47);
 
@@ -15,7 +15,7 @@ public sealed class AddTests
     [Fact]
     public void Add_MultipleItems_CountMatches()
     {
-        NodeList<int> list = [];
+        ListNode<int> list = [];
 
         list.Add(1);
         list.Add(2);
@@ -28,7 +28,7 @@ public sealed class AddTests
     [Fact]
     public void Add_Item_AppendedToEnd()
     {
-        NodeList<int> list = [1, 2, 3, 4];
+        ListNode<int> list = [1, 2, 3, 4];
 
         list.Add(6);
 
@@ -46,7 +46,7 @@ public sealed class AddTests
     [Fact]
     public void Add_FirstItem_FirstEqualsLast()
     {
-        NodeList<int> list = [];
+        ListNode<int> list = [];
 
         list.Add(123);
 
@@ -68,7 +68,7 @@ public sealed class AddTests
     [Fact]
     public void Add_NullReferenceType_Allowed()
     {
-        NodeList<string> list = [];
+        ListNode<string> list = [];
 
         list.Add(null);
 
@@ -79,7 +79,7 @@ public sealed class AddTests
     [Fact]
     public void Add_ValueType_DefaultValueHandledCorrectly()
     {
-        NodeList<int> list = [];
+        ListNode<int> list = [];
 
         list.Add(default);
 
@@ -90,7 +90,7 @@ public sealed class AddTests
     [Fact]
     public void Add_DuplicateItems_AllItemsAdded()
     {
-        NodeList<int> list = [];
+        ListNode<int> list = [];
 
         list.Add(52);
         list.Add(51);
@@ -110,7 +110,7 @@ public sealed class AddTests
     [Fact]
     public void Add_MultipleNullValues_AllItemsAdded()
     {
-        NodeList<string> list = [];
+        ListNode<string> list = [];
 
         list.Add(null);
         list.Add(null);
@@ -126,7 +126,7 @@ public sealed class AddTests
     [Fact]
     public void Add_AfterClear_ListContainsOnlyNewItems()
     {
-        NodeList<int> list = [1, 2, 3];
+        ListNode<int> list = [1, 2, 3];
 
         list.Clear();
 
@@ -147,7 +147,7 @@ public sealed class AddTests
     [Fact]
     public void Add_ManyItems_PreservesOrder()
     {
-        NodeList<int> list = [];
+        ListNode<int> list = [];
 
         const int count = 1000;
 

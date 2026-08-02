@@ -19,6 +19,6 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\src\NodeList\NodeList.csproj" />
+    <ProjectReference Include="..\..\src\ListNode\ListNode.csproj" />
   </ItemGroup>
 </Project>

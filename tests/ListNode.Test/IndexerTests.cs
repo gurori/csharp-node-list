@@ -1,11 +1,11 @@
-namespace NodeList.Test;
+namespace ListNode.Test;
 
 public sealed class IndexerTests
 {
     [Fact]
     public void Indexer_Get_FirstElement_ReturnsCorrectValue()
     {
-        NodeList<int> list = [1, 2, 3];
+        ListNode<int> list = [1, 2, 3];
 
         Assert.Equal(1, list[0]);
     }
@@ -13,7 +13,7 @@ public sealed class IndexerTests
     [Fact]
     public void Indexer_Get_MiddleElement_ReturnsCorrectValue()
     {
-        NodeList<int> list = [1, 2, 3];
+        ListNode<int> list = [1, 2, 3];
 
         Assert.Equal(2, list[1]);
     }
@@ -21,7 +21,7 @@ public sealed class IndexerTests
     [Fact]
     public void Indexer_Get_LastElement_ReturnsCorrectValue()
     {
-        NodeList<int> list = [1, 2, 3];
+        ListNode<int> list = [1, 2, 3];
 
         Assert.Equal(3, list[2]);
     }
@@ -29,7 +29,7 @@ public sealed class IndexerTests
     [Fact]
     public void Indexer_Get_SingleElement_ReturnsCorrectValue()
     {
-        NodeList<int> list = [42];
+        ListNode<int> list = [42];
 
         Assert.Equal(42, list[0]);
     }
@@ -37,7 +37,7 @@ public sealed class IndexerTests
     [Fact]
     public void Indexer_Get_DefaultValue_ReturnsDefaultValue()
     {
-        NodeList<int> list = [default];
+        ListNode<int> list = [default];
 
         Assert.Equal(default, list[0]);
     }
@@ -45,7 +45,7 @@ public sealed class IndexerTests
     [Fact]
     public void Indexer_Get_NullReference_ReturnsNull()
     {
-        NodeList<string?> list = [null];
+        ListNode<string?> list = [null];
 
         Assert.Null(list[0]);
     }
@@ -53,7 +53,7 @@ public sealed class IndexerTests
     [Fact]
     public void Indexer_Get_NegativeIndex_ThrowsArgumentOutOfRangeException()
     {
-        NodeList<int> list = [1];
+        ListNode<int> list = [1];
 
         Assert.Throws<ArgumentOutOfRangeException>(() => _ = list[-1]);
     }
@@ -61,7 +61,7 @@ public sealed class IndexerTests
     [Fact]
     public void Indexer_Get_IndexEqualToCount_ThrowsArgumentOutOfRangeException()
     {
-        NodeList<int> list = [1, 2, 3];
+        ListNode<int> list = [1, 2, 3];
 
         Assert.Throws<ArgumentOutOfRangeException>(() => _ = list[list.Count]);
     }
@@ -69,7 +69,7 @@ public sealed class IndexerTests
     [Fact]
     public void Indexer_Get_IndexGreaterThanCount_ThrowsArgumentOutOfRangeException()
     {
-        NodeList<int> list = [1, 2, 3];
+        ListNode<int> list = [1, 2, 3];
 
         Assert.Throws<ArgumentOutOfRangeException>(() => _ = list[100]);
     }
@@ -77,7 +77,7 @@ public sealed class IndexerTests
     [Fact]
     public void Indexer_Set_FirstElement_UpdatesValue()
     {
-        NodeList<int> list = [1, 2, 3];
+        ListNode<int> list = [1, 2, 3];
 
         list[0] = 10;
 
@@ -89,7 +89,7 @@ public sealed class IndexerTests
     [Fact]
     public void Indexer_Set_MiddleElement_UpdatesValue()
     {
-        NodeList<int> list = [1, 2, 3];
+        ListNode<int> list = [1, 2, 3];
 
         list[1] = 20;
 
@@ -101,7 +101,7 @@ public sealed class IndexerTests
     [Fact]
     public void Indexer_Set_LastElement_UpdatesValue()
     {
-        NodeList<int> list = [1, 2, 3];
+        ListNode<int> list = [1, 2, 3];
 
         list[2] = 30;
 
@@ -113,7 +113,7 @@ public sealed class IndexerTests
     [Fact]
     public void Indexer_Set_DefaultValue_UpdatesValue()
     {
-        NodeList<int> list = [1];
+        ListNode<int> list = [1];
 
         list[0] = default;
 
@@ -123,7 +123,7 @@ public sealed class IndexerTests
     [Fact]
     public void Indexer_Set_NullReference_UpdatesValue()
     {
-        NodeList<string?> list = ["Hello"];
+        ListNode<string?> list = ["Hello"];
 
         list[0] = null;
 
@@ -133,7 +133,7 @@ public sealed class IndexerTests
     [Fact]
     public void Indexer_Set_NegativeIndex_ThrowsArgumentOutOfRangeException()
     {
-        NodeList<int> list = [1];
+        ListNode<int> list = [1];
 
         Assert.Throws<ArgumentOutOfRangeException>(() => list[-1] = 0);
     }
@@ -141,7 +141,7 @@ public sealed class IndexerTests
     [Fact]
     public void Indexer_Set_IndexEqualToCount_ThrowsArgumentOutOfRangeException()
     {
-        NodeList<int> list = [1, 2, 3];
+        ListNode<int> list = [1, 2, 3];
 
         Assert.Throws<ArgumentOutOfRangeException>(() => list[list.Count] = 0);
     }
@@ -149,7 +149,7 @@ public sealed class IndexerTests
     [Fact]
     public void Indexer_Set_IndexGreaterThanCount_ThrowsArgumentOutOfRangeException()
     {
-        NodeList<int> list = [1, 2, 3];
+        ListNode<int> list = [1, 2, 3];
 
         Assert.Throws<ArgumentOutOfRangeException>(() => list[100] = 0);
     }
@@ -157,7 +157,7 @@ public sealed class IndexerTests
     [Fact]
     public void Indexer_Set_DoesNotChangeCount()
     {
-        NodeList<int> list = [1, 2, 3];
+        ListNode<int> list = [1, 2, 3];
 
         list[1] = 10;
 
@@ -167,7 +167,7 @@ public sealed class IndexerTests
     [Fact]
     public void Indexer_Set_PreservesOrderExceptChangedElement()
     {
-        NodeList<int> list = [1, 2, 3, 4];
+        ListNode<int> list = [1, 2, 3, 4];
 
         list[2] = 99;
 

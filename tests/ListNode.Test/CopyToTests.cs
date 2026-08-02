@@ -1,11 +1,11 @@
-namespace NodeList.Test;
+namespace ListNode.Test;
 
 public sealed class CopyToTests
 {
     [Fact]
     public void CopyTo_EmptyList_DestinationArrayUnchanged()
     {
-        NodeList<int> list = [];
+        ListNode<int> list = [];
 
         int[] destination = [1, 2, 3];
 
@@ -17,7 +17,7 @@ public sealed class CopyToTests
     [Fact]
     public void CopyTo_ArrayExactlyFits_CopiesAllElements()
     {
-        NodeList<int> list = [1, 2, 3];
+        ListNode<int> list = [1, 2, 3];
 
         int[] destination = new int[3];
 
@@ -29,7 +29,7 @@ public sealed class CopyToTests
     [Fact]
     public void CopyTo_ArrayLargerThanList_CopiesElementsFromBeginning()
     {
-        NodeList<int> list = [1, 2, 3];
+        ListNode<int> list = [1, 2, 3];
 
         int[] destination = [0, 0, 0, 0, 0];
 
@@ -41,7 +41,7 @@ public sealed class CopyToTests
     [Fact]
     public void CopyTo_NonZeroArrayIndex_CopiesElementsAtSpecifiedIndex()
     {
-        NodeList<int> list = [1, 2, 3];
+        ListNode<int> list = [1, 2, 3];
 
         int[] destination = [10, 20, 30, 40, 50];
 
@@ -53,7 +53,7 @@ public sealed class CopyToTests
     [Fact]
     public void CopyTo_WithDefaultValues_CopiesCorrectly()
     {
-        NodeList<int> list = [0, 1, 0];
+        ListNode<int> list = [0, 1, 0];
 
         int[] destination = new int[3];
 
@@ -65,7 +65,7 @@ public sealed class CopyToTests
     [Fact]
     public void CopyTo_WithNullReferenceValues_CopiesCorrectly()
     {
-        NodeList<string?> list = ["A", null, "C"];
+        ListNode<string?> list = ["A", null, "C"];
 
         string?[] destination = new string?[3];
 
@@ -77,7 +77,7 @@ public sealed class CopyToTests
     [Fact]
     public void CopyTo_NullArray_ThrowsArgumentNullException()
     {
-        NodeList<int> list = [1, 2, 3];
+        ListNode<int> list = [1, 2, 3];
 
         Assert.Throws<ArgumentNullException>(() => list.CopyTo(null!, 0));
     }
@@ -85,7 +85,7 @@ public sealed class CopyToTests
     [Fact]
     public void CopyTo_NegativeIndex_ThrowsArgumentOutOfRangeException()
     {
-        NodeList<int> list = [1, 2, 3];
+        ListNode<int> list = [1, 2, 3];
 
         int[] destination = new int[3];
 
@@ -95,7 +95,7 @@ public sealed class CopyToTests
     [Fact]
     public void CopyTo_ArrayTooSmall_ThrowsArgumentException()
     {
-        NodeList<int> list = [1, 2, 3];
+        ListNode<int> list = [1, 2, 3];
 
         int[] destination = new int[2];
 
@@ -105,7 +105,7 @@ public sealed class CopyToTests
     [Fact]
     public void CopyTo_InsufficientSpaceFromIndex_ThrowsArgumentException()
     {
-        NodeList<int> list = [1, 2, 3];
+        ListNode<int> list = [1, 2, 3];
 
         int[] destination = new int[4];
 
@@ -115,7 +115,7 @@ public sealed class CopyToTests
     [Fact]
     public void CopyTo_ArrayIndexEqualsLength_OnEmptyList_DoesNotThrow()
     {
-        NodeList<int> list = [];
+        ListNode<int> list = [];
 
         int[] destination = [1, 2, 3];
 
@@ -127,7 +127,7 @@ public sealed class CopyToTests
     [Fact]
     public void CopyTo_ArrayIndexEqualsLength_OnNonEmptyList_ThrowsArgumentException()
     {
-        NodeList<int> list = [1];
+        ListNode<int> list = [1];
 
         int[] destination = [0];
 

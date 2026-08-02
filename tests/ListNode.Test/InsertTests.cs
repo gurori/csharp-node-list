@@ -1,11 +1,11 @@
-namespace NodeList.Test;
+namespace ListNode.Test;
 
 public sealed class InsertTests
 {
     [Fact]
     public void Insert_IntoEmptyList_AddsElement()
     {
-        NodeList<int> list = [];
+        ListNode<int> list = [];
 
         list.Insert(0, 42);
 
@@ -16,7 +16,7 @@ public sealed class InsertTests
     [Fact]
     public void Insert_AtBeginning_InsertsElement()
     {
-        NodeList<int> list = [2, 3];
+        ListNode<int> list = [2, 3];
 
         list.Insert(0, 1);
 
@@ -34,7 +34,7 @@ public sealed class InsertTests
     [Fact]
     public void Insert_AtMiddle_InsertsElement()
     {
-        NodeList<int> list = [1, 3, 4];
+        ListNode<int> list = [1, 3, 4];
 
         list.Insert(1, 2);
 
@@ -52,7 +52,7 @@ public sealed class InsertTests
     [Fact]
     public void Insert_AtEnd_AppendsElement()
     {
-        NodeList<int> list = [1, 2, 3];
+        ListNode<int> list = [1, 2, 3];
 
         list.Insert(list.Count, 4);
 
@@ -70,7 +70,7 @@ public sealed class InsertTests
     [Fact]
     public void Insert_DefaultValue_InsertsSuccessfully()
     {
-        NodeList<int> list = [1, 2];
+        ListNode<int> list = [1, 2];
 
         list.Insert(1, default);
 
@@ -81,7 +81,7 @@ public sealed class InsertTests
     [Fact]
     public void Insert_NullReference_InsertsSuccessfully()
     {
-        NodeList<string?> list = ["A", "B"];
+        ListNode<string?> list = ["A", "B"];
 
         list.Insert(1, null);
 
@@ -92,7 +92,7 @@ public sealed class InsertTests
     [Fact]
     public void Insert_DuplicateValue_InsertsSuccessfully()
     {
-        NodeList<int> list = [1, 2, 3];
+        ListNode<int> list = [1, 2, 3];
 
         list.Insert(2, 2);
 
@@ -108,7 +108,7 @@ public sealed class InsertTests
     [Fact]
     public void Insert_NegativeIndex_ThrowsArgumentOutOfRangeException()
     {
-        NodeList<int> list = [1, 2, 3];
+        ListNode<int> list = [1, 2, 3];
 
         Assert.Throws<ArgumentOutOfRangeException>(() => list.Insert(-1, 0));
     }
@@ -116,7 +116,7 @@ public sealed class InsertTests
     [Fact]
     public void Insert_IndexGreaterThanCount_ThrowsArgumentOutOfRangeException()
     {
-        NodeList<int> list = [1, 2, 3];
+        ListNode<int> list = [1, 2, 3];
 
         Assert.Throws<ArgumentOutOfRangeException>(() => list.Insert(4, 0));
     }
@@ -124,7 +124,7 @@ public sealed class InsertTests
     [Fact]
     public void Insert_MultipleInsertions_PreserveOrder()
     {
-        NodeList<int> list = [];
+        ListNode<int> list = [];
 
         list.Insert(0, 2);
         list.Insert(0, 1);
@@ -145,7 +145,7 @@ public sealed class InsertTests
     [Fact]
     public void Insert_AfterClear_WorksCorrectly()
     {
-        NodeList<int> list = [1, 2, 3];
+        ListNode<int> list = [1, 2, 3];
 
         list.Clear();
 
@@ -158,7 +158,7 @@ public sealed class InsertTests
     [Fact]
     public void Insert_AtEndMultipleTimes_PreservesOrder()
     {
-        NodeList<int> list = [1];
+        ListNode<int> list = [1];
 
         list.Insert(list.Count, 2);
         list.Insert(list.Count, 3);
@@ -176,7 +176,7 @@ public sealed class InsertTests
     [Fact]
     public void Insert_AtBeginningMultipleTimes_PreservesReverseOrder()
     {
-        NodeList<int> list = [];
+        ListNode<int> list = [];
 
         list.Insert(0, 3);
         list.Insert(0, 2);

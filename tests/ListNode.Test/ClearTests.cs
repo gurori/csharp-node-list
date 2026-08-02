@@ -1,11 +1,11 @@
-namespace NodeList.Test;
+namespace ListNode.Test;
 
 public sealed class ClearTests
 {
     [Fact]
     public void Clear_EmptyList_RemainsEmpty()
     {
-        NodeList<int> list = [];
+        ListNode<int> list = [];
 
         list.Clear();
 
@@ -16,7 +16,7 @@ public sealed class ClearTests
     [Fact]
     public void Clear_SingleElement_ListBecomesEmpty()
     {
-        NodeList<int> list = [42];
+        ListNode<int> list = [42];
 
         list.Clear();
 
@@ -27,7 +27,7 @@ public sealed class ClearTests
     [Fact]
     public void Clear_MultipleElements_ListBecomesEmpty()
     {
-        NodeList<int> list = [1, 2, 3, 4, 5];
+        ListNode<int> list = [1, 2, 3, 4, 5];
 
         list.Clear();
 
@@ -38,7 +38,7 @@ public sealed class ClearTests
     [Fact]
     public void Clear_CalledMultipleTimes_DoesNotThrow()
     {
-        NodeList<int> list = [1, 2, 3];
+        ListNode<int> list = [1, 2, 3];
 
         list.Clear();
         list.Clear();
@@ -51,7 +51,7 @@ public sealed class ClearTests
     [Fact]
     public void Clear_AfterClear_CanAddNewItems()
     {
-        NodeList<int> list = [1, 2, 3];
+        ListNode<int> list = [1, 2, 3];
 
         list.Clear();
 
@@ -72,7 +72,7 @@ public sealed class ClearTests
     [Fact]
     public void Clear_AfterClear_ContainsReturnsFalse()
     {
-        NodeList<int> list = [1, 2, 3];
+        ListNode<int> list = [1, 2, 3];
 
         list.Clear();
 
@@ -84,7 +84,7 @@ public sealed class ClearTests
     [Fact]
     public void Clear_AfterClear_IndexOfReturnsMinusOne()
     {
-        NodeList<int> list = [1, 2, 3];
+        ListNode<int> list = [1, 2, 3];
 
         list.Clear();
 
@@ -94,7 +94,7 @@ public sealed class ClearTests
     [Fact]
     public void Clear_AfterClear_EnumerationReturnsNoItems()
     {
-        NodeList<int> list = [1, 2, 3];
+        ListNode<int> list = [1, 2, 3];
 
         list.Clear();
 
@@ -111,7 +111,7 @@ public sealed class ClearTests
     [Fact]
     public void Clear_AfterClear_IndexerThrowsArgumentOutOfRangeException()
     {
-        NodeList<int> list = [1, 2, 3];
+        ListNode<int> list = [1, 2, 3];
 
         list.Clear();
 
@@ -121,7 +121,7 @@ public sealed class ClearTests
     [Fact]
     public void Clear_AfterClear_InsertWorksCorrectly()
     {
-        NodeList<int> list = [1, 2, 3];
+        ListNode<int> list = [1, 2, 3];
 
         list.Clear();
 
