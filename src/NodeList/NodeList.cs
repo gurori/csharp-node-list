@@ -131,7 +131,15 @@ namespace NodeList
 
             if (index == 0)
             {
-                _first = new(item, _first);
+                if (_first is null)
+                {
+                    _first = _last = new(item);
+                }
+                else
+                {
+                    _first = new(item, _first);
+                }
+                
                 return;
             }
 
