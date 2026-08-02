@@ -3,11 +3,23 @@ namespace NodeList.Test;
 public sealed class ConstructorTests
 {
     [Fact]
-    public void Constructor_Empty_ListHasZeroCount()
+    public void Constructor_Default_ListIsEmpty()
     {
-        NodeList<int> list = [];
+        var list = new NodeList<int>();
 
         Assert.Empty(list);
+        Assert.Equal(0, list.Count);
+    }
+
+    [Fact]
+    public void Constructor_WithEmptyCollection_CreatesEmptyList()
+    {
+        int[] source = [];
+
+        var list = new NodeList<int>(source);
+
+        Assert.Empty(list);
+        Assert.Equal(0, list.Count);
     }
 
     [Fact]
@@ -16,6 +28,7 @@ public sealed class ConstructorTests
         NodeList<int> list = [52];
 
         Assert.Single(list);
+        Assert.Equal(52, list[0]);
     }
 
     [Fact]
@@ -28,28 +41,35 @@ public sealed class ConstructorTests
         Assert.Equal(source.Length, list.Count);
 
         int index = 0;
+
         foreach (var item in list)
         {
-            Assert.Equal(item, source[index++]);
+            Assert.Equal(source[index++], item);
         }
     }
 
     [Fact]
-    public void Constructor_WithNullCollection_ThrowsException()
+    public void Constructor_WithNullValues_PreservesNullValues()
     {
-        ICollection<int>? source = null;
+        string?[] source = ["A", null, "B"];
 
-        Assert.Throws<ArgumentNullException>(() =>
+        var list = new NodeList<string?>(source);
+
+        Assert.Equal(source.Length, list.Count);
+
+        int index = 0;
+
+        foreach (var item in list)
         {
-            var list = new NodeList<int>(source!);
-        });
+            Assert.Equal(source[index++], item);
+        }
     }
 
     [Fact]
-    public void Constructor_Default_ListIsEmpty()
+    public void Constructor_WithNullCollection_ThrowsArgumentNullException()
     {
-        var list = new NodeList<int>();
+        IEnumerable<int>? source = null;
 
-        Assert.Empty(list);
+        Assert.Throws<ArgumentNullException>(() => new NodeList<int>(source!));
     }
 }
