@@ -37,12 +37,13 @@ namespace NodeList
             if (Count == 0)
             {
                 _first = _last = new(item);
-                Count++;
-                return;
+            }
+            else
+            {
+                _last!.Next = new(item);
+                _last = _last.Next;
             }
 
-            _last!.Next = new(item);
-            _last = _last.Next;
             Count++;
         }
 
