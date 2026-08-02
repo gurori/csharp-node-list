@@ -76,9 +76,9 @@ public sealed class ClearTests
 
         list.Clear();
 
-        Assert.False(list.Contains(1));
-        Assert.False(list.Contains(2));
-        Assert.False(list.Contains(3));
+        Assert.DoesNotContain(1, list);
+        Assert.DoesNotContain(2, list);
+        Assert.DoesNotContain(3, list);
     }
 
     [Fact]
