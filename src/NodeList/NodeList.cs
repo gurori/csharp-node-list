@@ -139,7 +139,7 @@ namespace NodeList
                 {
                     _first = new(item, _first);
                 }
-                
+
                 return;
             }
 
@@ -212,7 +212,7 @@ namespace NodeList
             {
                 if (Count == 0)
                 {
-                    _first = _first = null;
+                    _first = _last = null;
                     return;
                 }
 
