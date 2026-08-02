@@ -155,6 +155,12 @@ namespace NodeList
 
             if (comparer.Equals(item, _first.Value))
             {
+                if (Count == 1)
+                {
+                    Clear();
+                    return true;
+                }
+
                 _first = _first.Next;
                 Count--;
                 return true;
@@ -166,6 +172,11 @@ namespace NodeList
             {
                 if (comparer.Equals(item, current.Next.Value))
                 {
+                    if (ReferenceEquals(current.Next, _last))
+                    {
+                        _last = current;
+                    }
+
                     current.Next = current.Next.Next;
                     Count--;
                     return true;
@@ -185,11 +196,23 @@ namespace NodeList
 
             if (index == 0)
             {
+                if (Count == 0)
+                {
+                    _first = _first = null;
+                    return;
+                }
+
                 _first = _first?.Next;
                 return;
             }
 
             Node<T> node = GetNodeByIndex(index - 1);
+
+            if (index == Count)
+            {
+                _last = node;
+            }
+
             node.Next = node.Next?.Next;
         }
 
