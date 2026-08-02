@@ -1,5 +1,3 @@
-using System.Reflection;
-
 namespace NodeList.Test;
 
 public sealed class AddTests
@@ -48,14 +46,14 @@ public sealed class AddTests
     [Fact]
     public void Add_FirstItem_FirstEqualsLast()
     {
-        var list = new NodeList<int>();
+        NodeList<int> list = [];
 
         list.Add(123);
 
         Assert.Single(list);
 
-        int count = 0,
-            value = -1;
+        int count = 0;
+        int value = -1;
 
         foreach (var item in list)
         {
@@ -87,5 +85,84 @@ public sealed class AddTests
 
         Assert.Single(list);
         Assert.Equal(0, list[0]);
+    }
+
+    [Fact]
+    public void Add_DuplicateItems_AllItemsAdded()
+    {
+        NodeList<int> list = [];
+
+        list.Add(52);
+        list.Add(51);
+        list.Add(55);
+
+        Assert.Equal(3, list.Count);
+
+        int[] expected = [52, 51, 55];
+        int index = 0;
+
+        foreach (var item in list)
+        {
+            Assert.Equal(expected[index++], item);
+        }
+    }
+
+    [Fact]
+    public void Add_MultipleNullValues_AllItemsAdded()
+    {
+        NodeList<string> list = [];
+
+        list.Add(null);
+        list.Add(null);
+
+        Assert.Equal(2, list.Count);
+
+        foreach (var item in list)
+        {
+            Assert.Null(item);
+        }
+    }
+
+    [Fact]
+    public void Add_AfterClear_ListContainsOnlyNewItems()
+    {
+        NodeList<int> list = [1, 2, 3];
+
+        list.Clear();
+
+        list.Add(10);
+        list.Add(20);
+
+        Assert.Equal(2, list.Count);
+
+        int[] expected = [10, 20];
+        int index = 0;
+
+        foreach (var item in list)
+        {
+            Assert.Equal(expected[index++], item);
+        }
+    }
+
+    [Fact]
+    public void Add_ManyItems_PreservesOrder()
+    {
+        NodeList<int> list = [];
+
+        const int count = 1000;
+
+        for (int i = 0; i < count; i++)
+        {
+            list.Add(i);
+        }
+
+        Assert.Equal(count, list.Count);
+
+        int expected = 0;
+
+        foreach (var item in list)
+        {
+            Assert.Equal(expected++, item);
+        }
     }
 }
