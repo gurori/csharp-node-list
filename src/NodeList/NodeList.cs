@@ -136,6 +136,11 @@ namespace NodeList
 
             if (index + 1 == Count)
             {
+                if (Count == 1)
+                {
+                    _first = _last = new(item);
+                }
+
                 _last!.Next = new(item);
                 _last = _last?.Next;
                 return;
