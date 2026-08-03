@@ -21,11 +21,11 @@ jobs:
         with:
           dotnet-version: 8.0.x
 
-      - name: Restore dependencies
-        run: dotnet restore
+      - name: Restore
+        run: dotnet restore cs-node-list.sln
 
       - name: Build
-        run: dotnet build --configuration Release --no-restore
+        run: dotnet build cs-node-list.sln --configuration Release --no-restore
 
-      - name: Run tests
-        run: dotnet test --configuration Release --no-build
+      - name: Test
+        run: dotnet test cs-node-list.sln --configuration Release --no-build
