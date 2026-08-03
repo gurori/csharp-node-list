@@ -78,11 +78,20 @@ tests/
  └── ListNode.Test
 ```
 
-## Testing
+## Getting Started
 
-The project contains unit tests covering constructors, collection operations, indexers, enumeration, boundary cases, and exception scenarios.
+### Requirements
 
-Run all tests:
+- .NET 8 SDK
+
+### Build
+
+```bash
+dotnet restore
+dotnet build
+```
+
+### Run tests
 
 ```bash
 dotnet test
