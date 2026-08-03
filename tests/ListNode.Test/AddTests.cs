@@ -68,7 +68,7 @@ public sealed class AddTests
     [Fact]
     public void Add_NullReferenceType_Allowed()
     {
-        ListNode<string> list = [];
+        ListNode<string?> list = [];
 
         list.Add(null);
 
@@ -110,7 +110,7 @@ public sealed class AddTests
     [Fact]
     public void Add_MultipleNullValues_AllItemsAdded()
     {
-        ListNode<string> list = [];
+        ListNode<string?> list = [];
 
         list.Add(null);
         list.Add(null);
