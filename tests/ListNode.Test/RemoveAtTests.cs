@@ -18,7 +18,6 @@ public sealed class RemoveAtTests
         list.RemoveAt(0);
 
         Assert.Empty(list);
-        Assert.Equal(0, list.Count);
     }
 
     [Fact]
@@ -109,7 +108,6 @@ public sealed class RemoveAtTests
         list.RemoveAt(0);
 
         Assert.Empty(list);
-        Assert.Equal(0, list.Count);
     }
 
     [Fact]

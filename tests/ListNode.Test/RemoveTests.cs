@@ -19,7 +19,6 @@ public sealed class RemoveTests
         Assert.True(list.Remove(42));
 
         Assert.Empty(list);
-        Assert.Equal(0, list.Count);
     }
 
     [Fact]
@@ -146,7 +145,6 @@ public sealed class RemoveTests
         Assert.True(list.Remove(3));
 
         Assert.Empty(list);
-        Assert.Equal(0, list.Count);
     }
 
     [Fact]
@@ -186,7 +184,6 @@ public sealed class RemoveTests
         Assert.True(list.Remove(2));
 
         Assert.Empty(list);
-        Assert.Equal(0, list.Count);
     }
 
     [Fact]

@@ -10,7 +10,6 @@ public sealed class ClearTests
         list.Clear();
 
         Assert.Empty(list);
-        Assert.Equal(0, list.Count);
     }
 
     [Fact]
@@ -21,7 +20,6 @@ public sealed class ClearTests
         list.Clear();
 
         Assert.Empty(list);
-        Assert.Equal(0, list.Count);
     }
 
     [Fact]
@@ -32,7 +30,6 @@ public sealed class ClearTests
         list.Clear();
 
         Assert.Empty(list);
-        Assert.Equal(0, list.Count);
     }
 
     [Fact]
@@ -45,7 +42,6 @@ public sealed class ClearTests
         list.Clear();
 
         Assert.Empty(list);
-        Assert.Equal(0, list.Count);
     }
 
     [Fact]

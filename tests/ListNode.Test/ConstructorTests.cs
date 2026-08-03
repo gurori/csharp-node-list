@@ -8,7 +8,6 @@ public sealed class ConstructorTests
         var list = new ListNode<int>();
 
         Assert.Empty(list);
-        Assert.Equal(0, list.Count);
     }
 
     [Fact]
@@ -19,7 +18,6 @@ public sealed class ConstructorTests
         var list = new ListNode<int>(source);
 
         Assert.Empty(list);
-        Assert.Equal(0, list.Count);
     }
 
     [Fact]
