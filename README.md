@@ -1,5 +1,9 @@
 # ListNode
 
+![.NET](https://img.shields.io/badge/.NET-8-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
+![Tests](https://img.shields.io/github/actions/workflow/status/gurori/ListNode/dotnet.yml?branch=main)
+
 A lightweight implementation of a generic singly linked list in C#.
 
 The project was created for educational purposes to better understand how linked lists work internally, how collection interfaces from .NET are implemented, and how to write comprehensive unit tests.
@@ -21,11 +25,11 @@ For example:
 
 The task inspired the name **ListNode**, since the original problem revolves around manipulating linked list nodes.
 
-Although this project implements a reusable linked list rather than solving the problem itself, its name pays tribute to one of the most well-known linked list problems on LeetCode.
+Although this project implements a reusable linked list rather than solving the problem itself, its name is inspired by one of the most well-known linked list problems on LeetCode.
 
 ## Features
 
-* Generic implementation (`ListNode<T>`)
+* Generic singly linked list (`ListNode<T>`)
 * Singly linked list
 * Implements standard .NET collection interfaces:
 
@@ -72,10 +76,10 @@ Output:
 
 ```
 src/
- └── ListNode
+└── ListNode/
 
 tests/
- └── ListNode.Test
+└── ListNode.Test/
 ```
 
 ## Getting Started
@@ -96,6 +100,10 @@ dotnet build
 ```bash
 dotnet test
 ```
+
+## Continuous Integration
+
+Every push and pull request automatically runs the test suite using GitHub Actions.
 
 ## Purpose
 
