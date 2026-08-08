@@ -2,7 +2,7 @@
 
 ![.NET](https://img.shields.io/badge/.NET-8-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
-![Tests](https://img.shields.io/github/actions/workflow/status/gurori/csharp-list-node/dotnet.yml?branch=main)
+![Tests](https://github.com/gurori/csharp-list-node/actions/workflows/dotnet.yml/badge.svg)
 
 A lightweight implementation of a generic singly linked list in C#.
 
